@@ -44,8 +44,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public List<Customer> findAll() {
         String sql = "SELECT * FROM customer";
-//        return jdbcTemplate.query(sql, Customer.class);
-//        return jdbcTemplate.query(sql, new Object[] {}, new BeanPropertyRowMapper(Customer.class));
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
     }
 }
